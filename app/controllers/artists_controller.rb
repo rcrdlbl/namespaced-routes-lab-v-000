@@ -1,6 +1,6 @@
 class ArtistsController < ApplicationController
   def index
-    if Preference.first.exists?
+    if !Preference.first.nil?
       @artists = Artist.order("name #{Preference.first.artist_sort_order}")
     else
       @artists = Artist.all
